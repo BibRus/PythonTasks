@@ -4,9 +4,7 @@
 
 Возможные дальнейшие улучшения по проекту:
 
-+ Сделать более правильную структуру проекта
 + Использовать более правильно конструкции языка Python
-+ Сделать код более удобочитаемым 
 + Следовать стилю кода PEP 8 
 
 ***
@@ -147,8 +145,8 @@ print(result)
 ```python
 cities = input('Введите список городов: ').split()
 
-for city in cities[::2]:
-    print(city)
+for city in cities[:2]:
+    print(city, end=' ')
 ```
 
 ***
@@ -175,6 +173,15 @@ print(' '.join(digit for digit in number))
 
 #### Решение ####
 
+```python
+numbers = list(map(int, input('Введите список целых чисел: ').split()))
+N = int(len(numbers) ** 0.5)
+matrix = [[numbers[row * N + column] for column in range(N)] for row in range(N)]
+print(matrix)
+```
+
+***
+
 #### Примечание к решению для матрицы 3х3 ####
 
 ```python
@@ -190,15 +197,6 @@ numbers[2 * 3 + 0]
 numbers[2 * 3 + 1]
 numbers[2 * 3 + 2]
 '''
-```
-
-***
-
-```python
-numbers = list(map(int, input('Введите список целых чисел: ').split()))
-N = int(len(numbers) ** 0.5)
-matrix = [[numbers[row * N + column] for column in range(N)] for row in range(N)]
-print(matrix)
 ```
 
 ***
